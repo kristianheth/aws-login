@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/auth/Login';
+import Header from './components/Header/Header';
+
 import User from './components/User/User';
 // import { Auth } from 'aws-amplify';
 
@@ -29,19 +31,22 @@ class App extends Component {
         <Router>
           <Switch>
             {this.state.isAuthenticated === false && (
-              <Route
-                exact
-                path='/'
-                render={(props) => (
-                  <Login
-                    {...props}
-                    user={this.state.user}
-                    setAuthStatus={this.setAuthStatus}
-                    isAuthenticated={this.state.isAuthenticated}
-                    setUser={this.setUser}
-                  />
-                )}
-              />
+              <>
+                <Header />
+                <Route
+                  exact
+                  path='/'
+                  render={(props) => (
+                    <Login
+                      {...props}
+                      user={this.state.user}
+                      setAuthStatus={this.setAuthStatus}
+                      isAuthenticated={this.state.isAuthenticated}
+                      setUser={this.setUser}
+                    />
+                  )}
+                />
+              </>
             )}
             {this.state.isAuthenticated === true && (
               <Route

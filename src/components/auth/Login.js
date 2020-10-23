@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
+import Header from '../../components/Header/Header';
 
 import './Login.css';
 
