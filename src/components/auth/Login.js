@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
-import Header from '../../components/Header/Header';
 
 import './Login.css';
 
@@ -19,7 +18,7 @@ class Login extends Component {
 
       this.props.setAuthStatus(true);
       this.props.setUser(user);
-      this.props.history.push('/');
+      // this.props.history.push('/');
     } catch (error) {
       let err = null;
       !error.message ? (err = { message: error }) : (err = error);
