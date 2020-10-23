@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './components/auth/Login';
+import User from './components/User/User';
+// import { Auth } from 'aws-amplify';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// username: jan.hölter, password: Test#5678
+
+class App extends Component {
+  state = {
+    isAuthenticated: false,
+    isAuthenticating: true,
+    user: '',
+  };
+
+  setAuthStatus = (authenticated) => {
+    this.setState({ isAuthenticated: authenticated });
+  };
+
+  setUser = (user) => {
+    this.setState({ user: user });
+  };
+
+  render() {
+    return (
+      <div className='App'>
+        <Router>
+          <Switch>
+            {this.state.isAuthenticated === false && (
+              <Route
+                exact
+                path='/'
+                render={(props) => (
+                  <Login
+                    {...props}
+                    user={this.state.user}
+                    setAuthStatus={this.setAuthStatus}
+                    isAuthenticated={this.state.isAuthenticated}
+                    setUser={this.setUser}
+                  />
+                )}
+              />
+            )}
+            {this.state.isAuthenticated === true && (
+              <Route
+                exact
+                path='/'
+                render={(props) => <User {...props} user={this.state.user} />}
+              />
+            )}
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

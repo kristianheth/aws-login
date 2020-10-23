@@ -1,0 +1,14 @@
+.auth-container {
+  background-image: url('../assets/img/bg_Anmelden.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.auth {
+  position: absolute;
+}

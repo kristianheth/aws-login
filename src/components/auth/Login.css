@@ -1,0 +1,63 @@
+.login {
+  /* position: absolute; */
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  position: relative;
+  padding-left: 25px;
+}
+
+.login h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.free-registration a {
+  text-decoration: none;
+  color: #0e8c77;
+  font-weight: 700;
+}
+
+.free-registration {
+  margin-bottom: 20px;
+}
+
+.login label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 90%;
+  border-bottom-style: groove;
+  background-color: antiquewhite;
+}
+
+input {
+  outline: none;
+}
+
+form :nth-child(4) {
+  margin-bottom: 85px;
+}
+
+button {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: solid 1px #ccc;
+  background-color: #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+
+form a {
+  text-decoration: none;
+  font-weight: 800;
+  color: #000;
+  font-size: 0.8rem;
+}
